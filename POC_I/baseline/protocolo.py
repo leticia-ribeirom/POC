@@ -3,6 +3,9 @@ protocolo.py — Configuração experimental PROPOSTA para o POC I.
 
 Todas as variantes (A: NSGA-II, B: NSGA-II + surrogate e, no POC II,
 C: + LLM) devem usar exatamente estes valores, para a comparação ser justa.
+
+STATUS: PROPOSTA A VALIDAR COM A ORIENTADORA. Justificativas no README e em
+resultados/relatorio_decisoes.txt (gerado por experimento_decisoes.py).
 """
 
 PROTOCOLO_POC1 = dict(
