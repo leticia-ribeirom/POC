@@ -17,7 +17,6 @@ Pontos importantes do desenho:
 Parâmetros padrão: os do artigo original do NSGA-II (Deb et al., 2002):
   probabilidade de cruzamento 0.9, probabilidade de mutação por variável
   1/n, índices de distribuição eta_c = eta_m = 20.
-[EM ABERTO] Tamanho da população e orçamento: decisão sua com a orientadora.
 """
 
 import random

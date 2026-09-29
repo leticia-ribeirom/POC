@@ -5,12 +5,6 @@ Lembrete:
   - HV : área dominada até um ponto de referência. MAIOR é melhor.
   - IGD: distância média de cada ponto da fronteira verdadeira até a
          solução obtida mais próxima. MENOR é melhor.
-
-[EM ABERTO] O ponto de referência do HV é decisão experimental. Aqui uso,
-como padrão, (1.1, 1.1): o pior valor de cada objetivo na fronteira
-verdadeira do ZDT1/2/3/4/6 (que é 1) mais 10%. É uma convenção comum, mas
-precisa ser combinada com a orientadora e mantida IGUAL em todas as
-variantes (A, B e C). Pontos piores que a referência não contam no HV.
 """
 
 import numpy as np

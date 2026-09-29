@@ -1,4 +1,4 @@
-# Fase 2 — NSGA-II baseline (variante A do POC)
+# NSGA-II baseline (variante A do POC)
 
 ## Como rodar
 
@@ -22,11 +22,6 @@ python3 experimento_decisoes.py  # experimento que embasa as decisões propostas
 
 ## Decisões propostas para o POC I
 
-> **Status: PROPOSTA A VALIDAR COM A ORIENTADORA.** São escolhas metodológicas do trabalho.
-> Cada uma tem uma justificativa abaixo para levar à reunião. Se alguma mudar, basta alterar
-> `protocolo.py` e rodar `experimento_decisoes.py` de novo (o ponto de referência depende da função
-> e do número de variáveis).
-
 | Decisão | Proposta | Justificativa curta |
 |---|---|---|
 | Função do teste de sanidade | **ZDT1** | Fronteira convexa e contínua, o caso mais simples; o objetivo do POC I é validar o pipeline, não testar dificuldades |
@@ -34,30 +29,24 @@ python3 experimento_decisoes.py  # experimento que embasa as decisões propostas
 | Orçamento de avaliações reais | **300** | Mesmo valor de SAEAs de referência testados em ZDT/DTLZ |
 | Tamanho da população | **20** | Melhor IGD no experimento, empatado com 12; divide 300 exatamente (sem sobra) |
 | Ponto de referência do HV | **(1.1, 7.3)** | 10% pior que o pior ponto das frentes aleatórias iniciais; qualquer melhoria sobre a amostragem aleatória aparece no HV |
-| Repetições no POC I | **10 seeds (1 a 10)** | O PDF pede "poucas repetições" para o teste de sanidade; o POC II terá mais |
+| Repetições no POC I | **10 seeds (1 a 10)** | O POC II terá mais |
 
 ### 1. Função: ZDT1
 
-O PDF pede o teste de sanidade em "uma única função" de um "subconjunto da suíte ZDT/DTLZ".
-O ZDT1 é o caso mais simples: 2 objetivos, fronteira convexa e contínua. Se o pipeline
-falhar no ZDT1, ele está errado; se funcionar, dá para passar às funções mais difíceis.
+O teste de sanidade é feito em "uma única função" de um "subconjunto da suíte ZDT/DTLZ".
+O ZDT1 é o caso mais simples: 2 objetivos, fronteira convexa e contínua. Se o pipeline falhar no ZDT1, ele está errado; se funcionar, dá para passar às funções mais difíceis.
 
-**Limitação a declarar:** por ser fácil, o ZDT1 pode esconder diferenças entre as variantes.
-Por isso ele serve para validar o pipeline, não para tirar conclusões.
+**Limitação a declarar:** por ser fácil, o ZDT1 pode esconder diferenças entre as variantes. Por isso ele serve para validar o pipeline, não para tirar conclusões.
 
-**Para o POC II (sugestão, não implementado):** ZDT1, ZDT2 e ZDT3 (fronteira convexa, côncava
-e desconexa) mais uma DTLZ com 3 objetivos (DTLZ2, a mais regular). O ZDT4 e a DTLZ1 são
-multimodais e podem entrar se houver tempo.
+**Para o POC II:** ZDT1, ZDT2 e ZDT3 (fronteira convexa, côncava
+e desconexa) mais uma DTLZ com 3 objetivos (DTLZ2, a mais regular). O ZDT4 e a DTLZ1 são multimodais e podem entrar se houver tempo.
 
 ### 2. Número de variáveis: 10 (em vez das 30 originais)
 
-O ZDT1 original usa 30 variáveis. Trabalhos de otimização cara costumam usar 10: um estudo de 2023
-com Kriging usa cinco ZDT e sete DTLZ com 10 variáveis e no máximo 300 avaliações reais; outro
-trabalho recente também testa instâncias de 10 variáveis com 300 avaliações. O motivo prático é que,
-com poucas centenas de avaliações, é difícil um modelo substituto aprender uma função de 30 dimensões.
+O ZDT1 original usa 30 variáveis. Trabalhos de otimização cara costumam usar 10: um estudo de 2023 com Kriging usa cinco ZDT e sete DTLZ com 10 variáveis e no máximo 300 avaliações reais; outro
+trabalho recente também testa instâncias de 10 variáveis com 300 avaliações. O motivo prático é que, com poucas centenas de avaliações, é difícil um modelo substituto aprender uma função de 30 dimensões.
 
-A fronteira de Pareto verdadeira **não muda** com o número de variáveis (ela depende só de f1), então
-o IGD continua comparável. **Declarar no relatório** que é uma adaptação do ZDT1 original.
+A fronteira de Pareto verdadeira **não muda** com o número de variáveis (ela depende só de f1), então o IGD continua comparável.
 
 ### 3. Orçamento: 300 avaliações reais
 
@@ -67,12 +56,10 @@ A literatura de algoritmos assistidos por surrogate trabalha com algumas centena
 - o estudo de 2023 com Kriging citado acima: 300 avaliações em ZDT e DTLZ.
 
 300 está nessa faixa e coincide com trabalhos que usam exatamente ZDT/DTLZ.
-**Confira esses números nos artigos completos antes de citá-los** (foram verificados em resumos e trechos).
 
 ### 4. População: 20
 
-Rodei o NSGA-II com todas as populações múltiplas de 4 que dividem 300 exatamente (12, 20, 60 e 100),
-30 seeds cada, no ZDT1 com 10 variáveis (`resultados/D1_tamanho_populacao.png`):
+Rodei o NSGA-II com todas as populações múltiplas de 4 que dividem 300 exatamente (12, 20, 60 e 100), 30 seeds cada, no ZDT1 com 10 variáveis (`resultados/D1_tamanho_populacao.png`):
 
 | População | Gerações | IGD final (média ± desvio) |
 |---|---|---|
@@ -85,9 +72,6 @@ Rodei o NSGA-II com todas as populações múltiplas de 4 que dividem 300 exatam
 - 20 é **claramente melhor** que 60 (p ≈ 10⁻⁷). Populações grandes gastam o orçamento em poucas gerações.
 - Entre as empatadas, 20 mantém mais pontos na frente final, o que cobre melhor a fronteira.
 
-**Por que ajustar a população do baseline é justo:** um baseline mal configurado faria o surrogate
-parecer melhor do que é. Escolher a melhor população para o NSGA-II puro torna a comparação mais honesta.
-A mesma população deve ser usada nas variantes B e C.
 
 ### 5. Ponto de referência do HV: (1.1, 7.3)
 
@@ -102,13 +86,6 @@ arredondado para cima. O pior observado foi f1 = 0.990 e f2 = 6.565, o que dá (
 - A regra usa só a população inicial aleatória, que será **a mesma** para as três variantes (mesmas seeds).
   Então ela não favorece nenhuma delas.
 
-**Cuidado:** a referência vale só para ZDT1 com 10 variáveis. Mudou a função ou o número de variáveis,
-recalcule com `experimento_decisoes.py`. Os HVs só são comparáveis com a mesma referência.
-
-### 6. Repetições: 10
-
-O PDF diz que o POC I terá "poucas repetições, apenas para validar que o pipeline converge". Dez seeds
-dão uma ideia da variação sem virar um estudo estatístico, que fica para o POC II.
 
 ## Resultados dos testes
 
@@ -143,16 +120,10 @@ O surrogate vai entrar entre gerar os filhos e avaliá-los. O resto fica igual.
 Probabilidade de cruzamento 0.9, mutação 1/n por variável, eta_c = eta_m = 20:
 são os valores do artigo original do NSGA-II (Deb et al., 2002).
 
-## Um detalhe para saber explicar
-
-Quando um par de filhos não sofre cruzamento e a mutação não altera nada, o filho é
-idêntico ao pai, mas ainda assim é avaliado de novo (gasta orçamento). É o comportamento
-padrão do DEAP e não muda a comparação entre variantes, desde que todas façam igual.
-
 ## Arquivo de avaliações
 
 Toda avaliação real fica em `resultado["arquivo_X"]` (variáveis) e `resultado["arquivo_F"]`
-(objetivos). No baseline isso é só registro; na Fase 3 é o conjunto de treino do Random Forest.
+(objetivos).
 
 ## Referências usadas nas justificativas
 

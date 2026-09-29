@@ -1,7 +1,7 @@
 ======================================================================
 T1 — Convergência no ZDT1 com orçamento grande (25.000 avaliações)
 ======================================================================
-Gerações: 249 | HV final 0.8690 (máximo teórico 0.8766, 99.1%) | IGD final 0.00504 | tempo 4.4s
+Gerações: 249 | HV final 0.8690 (máximo teórico 0.8766, 99.1%) | IGD final 0.00504 | tempo 8.2s
 [PASSOU] T1 convergência: critério: IGD < 0.01 e HV > 98% do máximo teórico
 
 ======================================================================
