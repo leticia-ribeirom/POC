@@ -1,0 +1,49 @@
+======================================================================
+T1 — Convergência no ZDT1 com orçamento grande (25.000 avaliações)
+======================================================================
+Gerações: 249 | HV final 0.8690 (máximo teórico 0.8766, 99.1%) | IGD final 0.00504 | tempo 4.4s
+[PASSOU] T1 convergência: critério: IGD < 0.01 e HV > 98% do máximo teórico
+
+======================================================================
+T2 — Curva de HV ao longo das avaliações
+======================================================================
+HV inicial 0.0000 -> final 0.8690 | gerações com queda de HV: 38 de 249 | maior queda: 0.00046
+Obs.: o NSGA-II é elitista, mas o HV da população pode cair um pouquinho quando o crowding descarta um ponto não dominado. Quedas devem ser raras e minúsculas.
+[PASSOU] T2 curva de HV: critério: HV final > inicial e nenhuma queda maior que 0.01
+
+======================================================================
+T3 — Controle do orçamento
+======================================================================
+orçamento  25000 -> avaliações usadas  25000 | registros no arquivo  25000 | sobra 0
+orçamento   1000 -> avaliações usadas   1000 | registros no arquivo   1000 | sobra 0
+orçamento   1050 -> avaliações usadas   1000 | registros no arquivo   1000 | sobra 50
+orçamento    300 -> avaliações usadas    300 | registros no arquivo    300 | sobra 0
+Contador com orçamento 2 bloqueou a 3ª avaliação? True
+[PASSOU] T3 orçamento: critério: nunca passa do orçamento, arquivo = nº de avaliações, excesso é bloqueado
+Obs.: com orçamento 1050 e população 100 sobram 50 avaliações, porque o algoritmo só roda gerações completas. [EM ABERTO] se isso é aceitável ou se o orçamento deve ser sempre múltiplo da população.
+
+======================================================================
+T4 — Reprodutibilidade
+======================================================================
+seed 7 vs seed 7 idênticos? True | seed 7 vs seed 8 diferentes? True
+[PASSOU] T4 reprodutibilidade: critério: mesma seed reproduz tudo; seed diferente muda o resultado
+
+======================================================================
+T5 — Demais problemas ZDT (25.000 avaliações, pop 100, seed 1)
+======================================================================
+zdt1: HV 0.8690 | IGD 0.00504 | pontos na frente 100
+zdt2: HV 0.5360 | IGD 0.00512 | pontos na frente 100
+zdt3: HV 1.3272 | IGD 0.00543 | pontos na frente 100
+zdt4: HV 0.8646 | IGD 0.00661 | pontos na frente 100
+zdt6: HV 0.4946 | IGD 0.00804 | pontos na frente 100
+Obs.: T5 não tem critério automático; é para você OLHAR os gráficos. ZDT4 é multimodal e costuma ser o mais difícil para o NSGA-II.
+
+======================================================================
+T6 — Baseline no protocolo proposto do POC I (ver protocolo.py)
+======================================================================
+ZDT1 com 10 variáveis, orçamento 300, pop 20, ref HV (1.1, 7.3), 10 seeds. Estes são os números contra os quais a Fase 3 (surrogate) será comparada.
+IGD final: média 0.739 ± 0.193 | HV final (ref (1.1, 7.3)): média 6.507 ± 0.177  (compare com T1, 25.000 avaliações: IGD 0.0050)
+Com a ref antiga (1.1, 1.1) o HV médio seria 0.078: a maioria das soluções fica fora da cerca, e por isso a referência foi ajustada ao regime de poucas avaliações.
+
+======================================================================
+RESUMO: 4/4 testes automáticos passaram. Baseline pronto para a Fase 3.
