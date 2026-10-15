@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.venv/
+# dados brutos gerados pelo COCO (grandes; recriados ao rodar os scripts)
+exdata/
+ppdata/

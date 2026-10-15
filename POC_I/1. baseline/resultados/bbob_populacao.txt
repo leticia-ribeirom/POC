@@ -1,0 +1,10 @@
+Mediana de delta_HV final (menor é melhor), 55 funções x 15 instâncias por D
+ D | orç. | pop   8 | pop  12 | pop  20 | pop  40 | pop  60 | pop 100
+ 5 |  150 |   0.238 |   0.245 |   0.271 |   0.330 |   0.358 |   0.385
+10 |  300 |   0.303 |   0.298 |   0.292 |   0.366 |   0.438 |   0.523
+20 |  600 |   0.362 |   0.332 |   0.306 |   0.350 |   0.407 |   0.525
+
+Wilcoxon pareado (mesma função e instância) contra pop 20: p-valor e qual população é melhor
+ 5 | 4.2e-07 pop8   | 3.0e-11 pop12  |       —       | 9.1e-30 pop20  | 1.6e-55 pop20  | 7.1e-77 pop20 
+10 | 4.1e-02 pop20  | 9.6e-01 pop12  |       —       | 3.7e-52 pop20  | 1.4e-104 pop20  | 1.3e-127 pop20 
+20 | 5.1e-25 pop20  | 6.0e-08 pop20  |       —       | 1.9e-29 pop20  | 1.3e-110 pop20  | 1.0e-135 pop20 

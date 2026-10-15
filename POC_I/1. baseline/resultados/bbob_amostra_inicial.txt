@@ -1,0 +1,10 @@
+Mediana de delta_HV final (menor é melhor), 55 funções x 15 instâncias por D
+ D | orç. |                    20 |                    40 |                 11D-1
+ 5 |  150 |   0.271 (amostra  20) |   0.252 (amostra  40) |   0.260 (amostra  54)
+10 |  300 |   0.292 (amostra  20) |   0.280 (amostra  40) |   0.298 (amostra 109)
+20 |  600 |   0.306 (amostra  20) |   0.299 (amostra  40) |   0.310 (amostra 219)
+
+Wilcoxon pareado (mesma função e instância) contra amostra 20: p-valor e qual é melhor
+ 5 | 40: p = 2.2e-04 (melhor: 40) | 11D-1: p = 8.1e-05 (melhor: 11D-1)
+10 | 40: p = 4.6e-03 (melhor: 40) | 11D-1: p = 1.5e-01 (melhor: 20)
+20 | 40: p = 1.9e-06 (melhor: 40) | 11D-1: p = 1.4e-01 (melhor: 20)

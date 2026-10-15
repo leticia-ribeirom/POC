@@ -1,0 +1,44 @@
+======================================================================
+T1 — Convergência com orçamento grande (f1, f2, f11; D = 5; população 100)
+======================================================================
+f1: delta_HV 0.36260 (300 aval.) -> 0.00872 (3000 aval.) -> 0.00179 (20000 aval.)
+f2: delta_HV 0.15521 (300 aval.) -> 0.00236 (3000 aval.) -> 0.00039 (20000 aval.)
+f11: delta_HV 0.03604 (300 aval.) -> 0.00132 (3000 aval.) -> 0.00038 (20000 aval.)
+[PASSOU] T1 convergência: critério: delta_HV cai quando o orçamento cresce e fica < 0.005 com 20.000 avaliações
+
+======================================================================
+T2 — Controle do orçamento (30 x D)
+======================================================================
+D =  5: orçamento 150 -> avaliações 150, arquivo 150, gerações 7, filhos avaliados na última geração 10
+D = 10: orçamento 300 -> avaliações 300, arquivo 300, gerações 14, filhos avaliados na última geração 20
+D = 20: orçamento 600 -> avaliações 600, arquivo 600, gerações 29, filhos avaliados na última geração 20
+Contador com orçamento 2 bloqueou a 3ª avaliação? True
+[PASSOU] T2 orçamento: critério: usa exatamente 30 x D, arquivo = nº de avaliações, excesso é bloqueado
+
+======================================================================
+T3 — Reprodutibilidade
+======================================================================
+seed 7 x seed 7 idênticos? True | seed 7 x seed 8 diferentes? True
+[PASSOU] T3 reprodutibilidade: critério: mesma seed reproduz tudo; seed diferente muda o resultado
+
+======================================================================
+T4 — Amostra inicial (n_inicial)
+======================================================================
+n_inicial = 20 idêntico ao clássico? True | n_inicial = 100: avaliações 300, após a amostra 100, gerações 10, população final 20
+[PASSOU] T4 amostra inicial: critério: n_inicial = população não muda nada; n_inicial maior respeita o orçamento
+
+======================================================================
+T5 — O COCO conta as mesmas avaliações que o NSGA-II
+======================================================================
+NSGA-II: [((1, 5), 150), ((1, 10), 300), ((1, 20), 600), ((46, 5), 150), ((46, 10), 300), ((46, 20), 600)]
+COCO:    [((1, 5), 150), ((1, 10), 300), ((1, 20), 600), ((46, 5), 150), ((46, 10), 300), ((46, 20), 600)]
+[PASSOU] T5 integração COCO: critério: as duas contagens batem e são iguais a 30 x D
+
+======================================================================
+T6 — Melhor que a busca aleatória (55 funções, D = 10, instância 1)
+======================================================================
+NSGA-II melhor em 100% das 55 funções | mediana 0.274 x aleatória 0.609
+[PASSOU] T6 melhor que o acaso: critério: NSGA-II com delta_HV menor que a aleatória em pelo menos 80% das funções
+
+======================================================================
+RESUMO: 6/6 testes automáticos passaram. Baseline pronto para a Fase 3.

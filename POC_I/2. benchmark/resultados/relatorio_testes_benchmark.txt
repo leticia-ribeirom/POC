@@ -1,0 +1,5 @@
+[PASSOU] B1 tamanho da suíte: 2475 problemas (esperado 2475), 2 objetivos e região [-5, 5]
+[PASSOU] B2 grupos: 55 funções em 15 grupos
+[PASSOU] B3 instâncias diferentes: f1, D = 10, x = 0: 15 valores distintos em 15 instâncias
+[PASSOU] B4 orçamento e reprodutibilidade: COCO registrou [150, 300, 600] avaliações (esperado 150, 300 e 600); duas rodadas idênticas? True
+RESUMO: 4/4 testes do benchmark passaram.

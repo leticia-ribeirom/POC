@@ -1,0 +1,56 @@
+funcao,f_bbob_1,f_bbob_2,objetivo_1,objetivo_2,grupo
+1,1,1,Sphere,Sphere,separável + separável
+2,1,2,Sphere,Elipsoide separável,separável + separável
+3,1,6,Sphere,Setor atrativo,separável + moderada
+4,1,8,Sphere,Rosenbrock,separável + moderada
+5,1,13,Sphere,Crista afiada,separável + mal-condicionada
+6,1,14,Sphere,Soma de potências,separável + mal-condicionada
+7,1,15,Sphere,Rastrigin,separável + multimodal
+8,1,17,Sphere,Schaffer F7,separável + multimodal
+9,1,20,Sphere,Schwefel,separável + fracamente estruturada
+10,1,21,Sphere,Gallagher 101,separável + fracamente estruturada
+11,2,2,Elipsoide separável,Elipsoide separável,separável + separável
+12,2,6,Elipsoide separável,Setor atrativo,separável + moderada
+13,2,8,Elipsoide separável,Rosenbrock,separável + moderada
+14,2,13,Elipsoide separável,Crista afiada,separável + mal-condicionada
+15,2,14,Elipsoide separável,Soma de potências,separável + mal-condicionada
+16,2,15,Elipsoide separável,Rastrigin,separável + multimodal
+17,2,17,Elipsoide separável,Schaffer F7,separável + multimodal
+18,2,20,Elipsoide separável,Schwefel,separável + fracamente estruturada
+19,2,21,Elipsoide separável,Gallagher 101,separável + fracamente estruturada
+20,6,6,Setor atrativo,Setor atrativo,moderada + moderada
+21,6,8,Setor atrativo,Rosenbrock,moderada + moderada
+22,6,13,Setor atrativo,Crista afiada,moderada + mal-condicionada
+23,6,14,Setor atrativo,Soma de potências,moderada + mal-condicionada
+24,6,15,Setor atrativo,Rastrigin,moderada + multimodal
+25,6,17,Setor atrativo,Schaffer F7,moderada + multimodal
+26,6,20,Setor atrativo,Schwefel,moderada + fracamente estruturada
+27,6,21,Setor atrativo,Gallagher 101,moderada + fracamente estruturada
+28,8,8,Rosenbrock,Rosenbrock,moderada + moderada
+29,8,13,Rosenbrock,Crista afiada,moderada + mal-condicionada
+30,8,14,Rosenbrock,Soma de potências,moderada + mal-condicionada
+31,8,15,Rosenbrock,Rastrigin,moderada + multimodal
+32,8,17,Rosenbrock,Schaffer F7,moderada + multimodal
+33,8,20,Rosenbrock,Schwefel,moderada + fracamente estruturada
+34,8,21,Rosenbrock,Gallagher 101,moderada + fracamente estruturada
+35,13,13,Crista afiada,Crista afiada,mal-condicionada + mal-condicionada
+36,13,14,Crista afiada,Soma de potências,mal-condicionada + mal-condicionada
+37,13,15,Crista afiada,Rastrigin,mal-condicionada + multimodal
+38,13,17,Crista afiada,Schaffer F7,mal-condicionada + multimodal
+39,13,20,Crista afiada,Schwefel,mal-condicionada + fracamente estruturada
+40,13,21,Crista afiada,Gallagher 101,mal-condicionada + fracamente estruturada
+41,14,14,Soma de potências,Soma de potências,mal-condicionada + mal-condicionada
+42,14,15,Soma de potências,Rastrigin,mal-condicionada + multimodal
+43,14,17,Soma de potências,Schaffer F7,mal-condicionada + multimodal
+44,14,20,Soma de potências,Schwefel,mal-condicionada + fracamente estruturada
+45,14,21,Soma de potências,Gallagher 101,mal-condicionada + fracamente estruturada
+46,15,15,Rastrigin,Rastrigin,multimodal + multimodal
+47,15,17,Rastrigin,Schaffer F7,multimodal + multimodal
+48,15,20,Rastrigin,Schwefel,multimodal + fracamente estruturada
+49,15,21,Rastrigin,Gallagher 101,multimodal + fracamente estruturada
+50,17,17,Schaffer F7,Schaffer F7,multimodal + multimodal
+51,17,20,Schaffer F7,Schwefel,multimodal + fracamente estruturada
+52,17,21,Schaffer F7,Gallagher 101,multimodal + fracamente estruturada
+53,20,20,Schwefel,Schwefel,fracamente estruturada + fracamente estruturada
+54,20,21,Schwefel,Gallagher 101,fracamente estruturada + fracamente estruturada
+55,21,21,Gallagher 101,Gallagher 101,fracamente estruturada + fracamente estruturada

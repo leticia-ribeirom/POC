@@ -16,6 +16,7 @@ plataforma COCO e usar os **indicadores do próprio COCO**. O projeto recomeçou
 POC/
 └── POC_I/
     ├── README.md          ← este arquivo (visão geral)
+    ├── rodar_tudo.py      ← roda o benchmark e o baseline inteiros, na ordem certa
     ├── 1. baseline/       ← o NSGA-II (variante A) rodando no bbob-biobj
     ├── 2. benchmark/      ← o benchmark (bbob-biobj + COCO), usado por todas as variantes
     └── documentos/        ← documento de decisões para a orientadora e a figura do funil
@@ -35,29 +36,43 @@ dentro de `POC_I`.
 ## Como rodar
 
 No VS Code, abra a pasta **`POC_I`** (**File → Open Folder**) e, no terminal
-(**Terminal → New Terminal**):
+(**Terminal → New Terminal**), crie o ambiente e instale as bibliotecas (uma vez só):
+
+| Windows | Mac / Linux / WSL |
+|---|---|
+| `python -m venv .venv` | `python3 -m venv .venv` |
+| `.venv\Scripts\activate` | `source .venv/bin/activate` |
 
 ```bash
-python -m venv .venv
-.venv\Scripts\activate            # Windows  (Mac/Linux: source .venv/bin/activate)
 pip install deap numpy scipy matplotlib moocore coco-experiment cocopp cairosvg
-
-cd "2. benchmark"
-python testes_benchmark.py         # confere o benchmark (~10 s)
-
-cd "../1. baseline"
-python testes_baseline.py          # testes de correção do NSGA-II (~1 min)
-python experimento_baseline.py     # baseline completo + análise do COCO (~5 min)
-python experimento_populacao.py    # decisão da população (~10 min)
-python grafico_populacao.py
-python experimento_amostra_inicial.py   # decisão da amostra inicial (~6 min)
-python grafico_amostra_inicial.py
 ```
 
-As aspas em `cd "1. baseline"` são necessárias por causa do espaço no nome. Rode pelo terminal,
-de dentro da pasta, e não pelo botão ▶ do VS Code (ele rodaria a partir de `POC_I`, e os
-resultados iriam para o lugar errado). As pastas `exdata/` e `ppdata/` (dados brutos e análise do
-COCO) não vão no zip nem no git; elas são recriadas quando você roda os experimentos.
+Depois, **um comando roda tudo**, na ordem certa:
+
+```bash
+python rodar_tudo.py            # tudo (~25 min): testes, baseline, população, amostra inicial
+python rodar_tudo.py --rapido   # só os testes e a demonstração (~1 min)
+python rodar_tudo.py --lista    # mostra as etapas sem rodar
+```
+
+| # | Etapa | Pasta | Tempo |
+|---|---|---|---|
+| 1 | Lista das 55 funções | `2. benchmark` | segundos |
+| 2 | Testes do benchmark (B1 a B4) | `2. benchmark` | segundos |
+| 3 | Demonstração do NSGA-II | `1. baseline` | < 1 s |
+| 4 | Testes de correção (T1 a T6) | `1. baseline` | ~30 s |
+| 5 | Baseline completo (2.475 execuções) + análise do COCO | `1. baseline` | ~5 min |
+| 6–7 | Decisão da população + gráfico P1 | `1. baseline` | ~10 min |
+| 8–9 | Decisão da amostra inicial + gráfico A1 | `1. baseline` | ~6 min |
+
+O `rodar_tudo.py` chama cada script com o mesmo Python (o do `.venv`) e de dentro da pasta
+certa, então funciona igual no Windows, no Mac e no Linux. Se uma etapa falhar, ele para e diz
+qual foi. Também dá para rodar um script sozinho: entre na pasta (`cd "1. baseline"`, com aspas
+por causa do espaço) e rode `python nome_do_script.py`.
+
+As pastas `exdata/` e `ppdata/` (dados brutos e análise do COCO) não vão no zip nem no git; elas
+são recriadas quando você roda os experimentos. A análise completa do COCO fica em
+`1. baseline/ppdata/index.html`.
 
 ## Plano do POC I
 

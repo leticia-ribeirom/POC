@@ -1,0 +1,30 @@
+======================================================================
+Baseline no bbob-biobj: 55 funções x D=[5, 10, 20] x 15 instâncias = 2475 execuções por algoritmo
+Orçamento: 30 x D | população 20 | amostra inicial 20
+======================================================================
+NSGA-II: 205 s no total
+Aleatoria: 67 s no total
+
+delta_HV final (diferença para o HV de referência do COCO; menor é melhor)
+  D |  orç. |  NSGA-II mediana |  Aleatória mediana |  NSGA-II melhor em |  alvo 0.1 (NSGA-II)
+  5 |   150 |            0.271 |              0.384 |                78% |                 16%
+ 10 |   300 |            0.292 |              0.594 |                97% |                 15%
+ 20 |   600 |            0.306 |              0.727 |               100% |                 10%
+Wilcoxon pareado (NSGA-II < aleatória), todas as 2475 execuções: p = 0.0e+00
+
+Por grupo de funções, D = 10 (mediana de delta_HV sobre funções x instâncias)
+  separável + separável                          NSGA-II  0.184 | aleatória  0.393
+  separável + moderada                           NSGA-II  0.122 | aleatória  0.423
+  separável + mal-condicionada                   NSGA-II  0.279 | aleatória  0.512
+  separável + multimodal                         NSGA-II  0.320 | aleatória  0.596
+  separável + fracamente estruturada             NSGA-II  0.302 | aleatória  0.560
+  moderada + moderada                            NSGA-II  0.136 | aleatória  0.471
+  moderada + mal-condicionada                    NSGA-II  0.271 | aleatória  0.627
+  moderada + multimodal                          NSGA-II  0.352 | aleatória  0.566
+  moderada + fracamente estruturada              NSGA-II  0.219 | aleatória  0.703
+  mal-condicionada + mal-condicionada            NSGA-II  0.290 | aleatória  0.502
+  mal-condicionada + multimodal                  NSGA-II  0.382 | aleatória  0.606
+  mal-condicionada + fracamente estruturada      NSGA-II  0.419 | aleatória  0.688
+  multimodal + multimodal                        NSGA-II  0.397 | aleatória  0.646
+  multimodal + fracamente estruturada            NSGA-II  0.384 | aleatória  0.707
+  fracamente estruturada + fracamente estruturada NSGA-II  0.366 | aleatória  0.795
