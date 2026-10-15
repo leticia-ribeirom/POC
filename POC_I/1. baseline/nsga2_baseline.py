@@ -13,7 +13,7 @@ Pontos importantes do desenho:
      No baseline o arquivo só serve para registro, mas na Fase 3 ele será
      o conjunto de treino do Random Forest.
   4. A qualidade NÃO é calculada aqui: o observador do COCO registra cada
-     avaliação e calcula o indicador oficial (ver ../fase2b_benchmark).
+     avaliação e calcula o indicador oficial (ver ../2. benchmark).
 
 Operadores e parâmetros: os do artigo original do NSGA-II (DEB et al., 2002):
   cruzamento SBX (probabilidade 0.9, eta_c = 20), mutação polinomial
@@ -27,12 +27,9 @@ import time
 import numpy as np
 from deap import base, creator, tools
 
-import os
-import sys
-
-# O benchmark (problemas, protocolo, COCO) fica na pasta ../fase2b_benchmark.
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                                "..", "fase2b_benchmark"))
+# O benchmark (problemas, protocolo, COCO) fica na pasta vizinha;
+# caminho_benchmark.py a encontra e a coloca no caminho dos imports.
+import caminho_benchmark  # noqa: F401
 
 
 # ---------------------------------------------------------------------------

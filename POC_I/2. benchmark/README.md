@@ -1,8 +1,8 @@
-# Fase 2b — Benchmark: a suíte `bbob-biobj` da plataforma COCO
+# 2. Benchmark — a suíte `bbob-biobj` da plataforma COCO
 
 Esta pasta define **o banco de testes do projeto**: quais problemas, em que condições e como a
 qualidade é medida. Ela não tem algoritmo de otimização. O NSGA-II (baseline) está em
-`../fase2_baseline`, e as variantes B (surrogate) e C (LLM) vão usar exatamente este mesmo
+`../1. baseline`, e as variantes B (surrogate) e C (LLM) vão usar exatamente este mesmo
 benchmark.
 
 > **Decidido na reunião de 13/10/2026 com a orientadora:** trocar o benchmark pela suíte
@@ -30,7 +30,8 @@ benchmark.
    ```
    `coco-experiment` é a plataforma COCO (importada como `cocoex`) e `cocopp` é a ferramenta de
    análise dela.
-2. No VS Code, abra a pasta `fase2b_benchmark` (**File → Open Folder**) e rode:
+2. No VS Code, abra a pasta `POC_I` (**File → Open Folder**), entre nesta pasta pelo terminal
+   com `cd "2. benchmark"` (as aspas são por causa do espaço) e rode:
 
 | Comando | Tempo | O que faz | Você deve ver |
 |---|---|---|---|
@@ -134,7 +135,7 @@ avaliações cada variante precisa para atingir cada nível de qualidade.
 
 `busca_aleatoria.py` sorteia 30 × D soluções uniformes em [−5, 5]^D e não aprende nada. Ela é o
 **piso** do benchmark: qualquer método que valha a pena precisa ser melhor que ela com o mesmo
-orçamento. Ela roda junto com o NSGA-II em `../fase2_baseline/experimento_baseline.py`.
+orçamento. Ela roda junto com o NSGA-II em `../1. baseline/experimento_baseline.py`.
 
 ---
 

@@ -5,7 +5,7 @@ Sorteia `orcamento` soluções uniformes na região [-5, 5]^D e avalia todas.
 Não aprende nada. Qualquer algoritmo que valha a pena (o NSGA-II e as
 variantes com surrogate e LLM) precisa ser melhor que ela com o MESMO
 orçamento; por isso ela roda junto com o baseline em
-../fase2_baseline/experimento_bbob.py.
+../1. baseline/experimento_baseline.py.
 """
 
 import numpy as np

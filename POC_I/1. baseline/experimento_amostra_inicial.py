@@ -22,7 +22,7 @@ import sys
 import numpy as np
 from scipy.stats import wilcoxon
 
-from nsga2_baseline import rodar_nsga2          # já aponta para ../fase2b_benchmark
+from nsga2_baseline import rodar_nsga2          # também acha a pasta do benchmark
 from coco_utils import rodar_no_bbob, ler_resultados_finais
 from protocolo import PROTOCOLO_BBOB as P, orcamento, seed_da_instancia
 

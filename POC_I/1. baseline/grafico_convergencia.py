@@ -20,8 +20,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                                "..", "fase2b_benchmark"))
+import caminho_benchmark  # noqa: F401  (acha a pasta do benchmark)
 from protocolo import PROTOCOLO_BBOB as P, orcamento
 
 CORES = {"NSGA-II": "#2a78d6", "Aleatoria": "#eb6834"}

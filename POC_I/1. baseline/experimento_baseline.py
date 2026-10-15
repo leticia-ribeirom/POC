@@ -9,7 +9,7 @@ instâncias 1 a 15, orçamento 30 x D, população 20.
 Roda dois algoritmos com o observador do COCO ligado:
   1. NSGA-II (o baseline, variante A);
   2. busca aleatória com o mesmo orçamento (o "piso" do benchmark, em
-     ../fase2b_benchmark/busca_aleatoria.py: o NSGA-II precisa ser melhor que
+     ../2. benchmark/busca_aleatoria.py: o NSGA-II precisa ser melhor que
      sortear soluções ao acaso).
 
 Saídas:
@@ -32,7 +32,7 @@ from collections import defaultdict
 
 import numpy as np
 
-from nsga2_baseline import rodar_nsga2          # já aponta para ../fase2b_benchmark
+from nsga2_baseline import rodar_nsga2          # também acha a pasta do benchmark
 from busca_aleatoria import busca_aleatoria
 from coco_utils import rodar_no_bbob, ler_resultados_finais
 from funcoes_bbob import grupo_da_funcao

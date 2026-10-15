@@ -6,7 +6,7 @@ coco_utils.py — Ligação entre o NSGA-II e a plataforma COCO.
   - ler_resultados_finais: lê os arquivos gravados pelo COCO e devolve o
     indicador final de cada execução.
 
-Usado pelo baseline (../fase2_baseline) e, depois, pelas variantes B e C.
+Usado pelo baseline (../1. baseline) e, depois, pelas variantes B e C.
 
 O INDICADOR DO COCO (BROCKHOFF et al., 2016)
   O COCO guarda todas as soluções não dominadas avaliadas (o arquivo), com os

@@ -4,7 +4,7 @@ na reunião com a orientadora).
 
 Todas as variantes (A: NSGA-II, B: NSGA-II + surrogate, C: NSGA-II +
 surrogate + LLM) usam exatamente estes valores, para a comparação ser justa.
-Ver README desta pasta (benchmark) e de ../fase2_baseline (algoritmo).
+Ver README desta pasta (benchmark) e de ../1. baseline (algoritmo).
 """
 
 # ---------------------------------------------------------------------------
@@ -19,7 +19,7 @@ PROTOCOLO_BBOB = dict(
                                      # (D=5: 150, D=10: 300, D=20: 600)
                                      # [PROPOSTA] a confirmar com a orientadora
     # Configuração comum às três variantes (decidida no bbob-biobj,
-    # ../fase2_baseline/experimento_populacao_bbob.py e experimento_amostra_inicial.py)
+    # ../1. baseline/experimento_populacao.py e experimento_amostra_inicial.py)
     tam_pop=20,                      # soluções mantidas por geração
     n_inicial=20,                    # amostra inicial [EM ABERTO para a Fase 3]
 )

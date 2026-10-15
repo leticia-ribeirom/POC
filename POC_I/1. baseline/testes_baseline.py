@@ -32,7 +32,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-from nsga2_baseline import rodar_nsga2, ContadorAvaliacoes, OrcamentoEsgotado  # aponta para ../fase2b_benchmark
+from nsga2_baseline import rodar_nsga2, ContadorAvaliacoes, OrcamentoEsgotado  # também acha a pasta do benchmark
 from busca_aleatoria import busca_aleatoria
 from coco_utils import rodar_no_bbob, ler_resultados_finais
 from grafico_convergencia import trajetorias

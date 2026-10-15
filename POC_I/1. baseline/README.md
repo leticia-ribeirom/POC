@@ -1,8 +1,8 @@
-# Fase 2 — Baseline: NSGA-II no `bbob-biobj`
+# 1. Baseline — NSGA-II no `bbob-biobj`
 
 Esta pasta contém a **variante A** do projeto: o NSGA-II puro (DEB et al., 2002), implementado
 em Python com a biblioteca DEAP (FORTIN et al., 2012) e rodado no benchmark do projeto, a suíte
-`bbob-biobj` do COCO (definida em `../fase2b_benchmark`). Ela é a referência contra a qual o
+`bbob-biobj` do COCO (definida em `../2. benchmark`). Ela é a referência contra a qual o
 NSGA-II + surrogate (variante B) e o NSGA-II + surrogate + LLM (variante C) serão comparados.
 
 > **Reunião de 13/10/2026 com a orientadora:** o benchmark passou a ser o `bbob-biobj`, os
@@ -29,10 +29,15 @@ NSGA-II + surrogate (variante B) e o NSGA-II + surrogate + LLM (variante C) ser�
 
 **Python 3.10 ou mais novo** (testado com 3.11) e **VS Code** com a extensão **Python**.
 
-### Passo 2 — Abrir a pasta `fase2_baseline` no VS Code (File → Open Folder)
+### Passo 2 — Abrir a pasta `POC_I` no VS Code (File → Open Folder)
 
-Ela precisa estar ao lado da pasta `fase2b_benchmark` (como vem no zip): os scripts daqui buscam
-o benchmark lá.
+A pasta `1. baseline` precisa ficar ao lado da `2. benchmark`, dentro de `POC_I` (como vem no
+zip). Os scripts daqui buscam o benchmark na pasta vizinha que tem `coco_utils.py` e
+`protocolo.py`; a busca é pelo conteúdo, então os nomes das pastas podem mudar.
+
+**Rode os comandos de dentro desta pasta:** `cd "1. baseline"` (as aspas são necessárias por
+causa do espaço no nome). Os resultados são gravados em `resultados/` e `exdata/` a partir de onde
+o comando é executado.
 
 ### Passo 3 — Ambiente virtual e bibliotecas
 
@@ -75,7 +80,7 @@ execução e **não vão para o git nem para o zip**.
 
 ## 2. O algoritmo e sua configuração
 
-O protocolo (benchmark, dimensões, instâncias, orçamento) está em `../fase2b_benchmark`. Aqui
+O protocolo (benchmark, dimensões, instâncias, orçamento) está em `../2. benchmark`. Aqui
 está o que é do **algoritmo**. Legenda: ✅ decidido · ⚠️ em aberto.
 
 **Comum às três variantes:**
@@ -256,7 +261,7 @@ B: em cada geração, ela gera **muitos candidatos** com cruzamento e mutação,
 e o Random Forest escolhe os 20 que serão avaliados de verdade (figura do funil em
 `../documentos/figuras/F1_funil_metodo.png`). A Fase 3 vai comparar **100, 200 e 500** candidatos
 (o melhor de 5, de 10 e de 25), e o vencedor vira o valor final (`N_CANDIDATOS_OPCOES` em
-`../fase2b_benchmark/protocolo.py`). É a mesma ideia dos algoritmos assistidos por surrogate da
+`../2. benchmark/protocolo.py`). É a mesma ideia dos algoritmos assistidos por surrogate da
 literatura, que exploram bastante no modelo e avaliam poucas soluções de verdade; o K-RVEA, por
 exemplo, reavalia 5 soluções a cada atualização do modelo (CHUGH et al., 2018). Em aberto: regra
 de pré-seleção, configuração e frequência de retreino do Random Forest.
@@ -273,10 +278,11 @@ de pré-seleção, configuração e frequência de retreino do Random Forest.
 | `grafico_convergencia.py` | Gráfico B2 (convergência dentro do orçamento) |
 | `experimento_populacao.py`, `grafico_populacao.py` | Decisão da população (seção 5.1, gráfico P1) |
 | `experimento_amostra_inicial.py`, `grafico_amostra_inicial.py` | Decisão da amostra inicial (seção 5.2, gráfico A1) |
-| `../fase2b_benchmark/` | Protocolo, problemas, COCO, busca aleatória |
+| `caminho_benchmark.py` | Acha a pasta do benchmark (ao lado desta) e a deixa disponível para os imports |
+| `../2. benchmark/` | Protocolo, problemas, COCO, busca aleatória |
 
 ```
-../fase2b_benchmark/                 fase2_baseline/
+../2. benchmark/                     1. baseline/
   protocolo.py ──┐
   problemas.py ──┼──► nsga2_baseline.py ──► experimento_baseline.py ──► cocopp (ECDF, B1)
   coco_utils.py ─┤                                     └──► grafico_convergencia.py (B2)
