@@ -1,4 +1,4 @@
-# POC I — Algoritmos evolutivos multiobjetivo mais eficientes com modelo substituto e LLM
+# POC I - Algoritmos evolutivos multiobjetivo mais eficientes com modelo substituto e LLM
 
 Leticia Ribeiro Miranda · Orientadora: Profa. Gisele Lobo Pappa · UFMG
 
@@ -6,9 +6,7 @@ O projeto compara três variantes sob um orçamento curto de avaliações reais:
 **A** = NSGA-II puro (baseline), **B** = NSGA-II + surrogate (Random Forest) e
 **C** = NSGA-II + surrogate + LLM (API do Claude).
 
-Na reunião de 13/10/2026, a orientadora sugeriu trocar o benchmark pela suíte **`bbob-biobj`** da
-plataforma COCO e usar os **indicadores do próprio COCO**. O projeto recomeçou a partir daí:
-**todos os testes, gráficos e decisões foram feitos no `bbob-biobj`.**
+Todos os testes, gráficos e decisões foram feitos na suíte `bbob-biobj`.
 
 ## Estrutura
 
@@ -29,7 +27,7 @@ POC/
 | **`documentos/`** | `decisoes_projeto_POC_I.docx` e `figuras/F1_funil_metodo.png` (uma geração do método) | — |
 
 Cada pasta tem o próprio `README.md`, com passo a passo, decisões e referências. O benchmark
-explica o problema e como a qualidade é medida; o baseline é o algoritmo rodando nele. Os
+explica o problema e como a qualidade é medida. Já o baseline é o algoritmo rodando nele. Os
 scripts do baseline buscam o benchmark na pasta vizinha, então as duas precisam ficar lado a lado
 dentro de `POC_I`.
 
@@ -70,8 +68,7 @@ certa, então funciona igual no Windows, no Mac e no Linux. Se uma etapa falhar,
 qual foi. Também dá para rodar um script sozinho: entre na pasta (`cd "1. baseline"`, com aspas
 por causa do espaço) e rode `python nome_do_script.py`.
 
-As pastas `exdata/` e `ppdata/` (dados brutos e análise do COCO) não vão no zip nem no git; elas
-são recriadas quando você roda os experimentos. A análise completa do COCO fica em
+As pastas `exdata/` e `ppdata/` (dados brutos e análise do COCO) são recriadas quando você roda os experimentos. A análise completa do COCO fica em
 `1. baseline/ppdata/index.html`.
 
 ## Plano do POC I
