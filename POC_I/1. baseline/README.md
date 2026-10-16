@@ -1,14 +1,9 @@
-# 1. Baseline — NSGA-II no `bbob-biobj`
+# 1. Baseline - NSGA-II no `bbob-biobj`
 
 Esta pasta contém a **variante A** do projeto: o NSGA-II puro (DEB et al., 2002), implementado
 em Python com a biblioteca DEAP (FORTIN et al., 2012) e rodado no benchmark do projeto, a suíte
 `bbob-biobj` do COCO (definida em `../2. benchmark`). Ela é a referência contra a qual o
 NSGA-II + surrogate (variante B) e o NSGA-II + surrogate + LLM (variante C) serão comparados.
-
-> **Reunião de 13/10/2026 com a orientadora:** o benchmark passou a ser o `bbob-biobj`, os
-> indicadores passaram a ser os do COCO e todo o projeto, inclusive o LLM, passou para o POC I.
-> O baseline foi refeito do zero nesse cenário: **todos os testes, gráficos e decisões desta pasta
-> foram feitos no `bbob-biobj`.**
 
 **Conteúdo**
 
@@ -25,11 +20,11 @@ NSGA-II + surrogate (variante B) e o NSGA-II + surrogate + LLM (variante C) ser�
 
 ## 1. Passo a passo para rodar
 
-### Passo 1 — Instalar (uma vez só)
+### Passo 1 - Instalar (uma vez só)
 
 **Python 3.10 ou mais novo** (testado com 3.11) e **VS Code** com a extensão **Python**.
 
-### Passo 2 — Abrir a pasta `POC_I` no VS Code (File → Open Folder)
+### Passo 2 - Abrir a pasta `POC_I` no VS Code (File → Open Folder)
 
 A pasta `1. baseline` precisa ficar ao lado da `2. benchmark`, dentro de `POC_I` (como vem no
 zip). Os scripts daqui buscam o benchmark na pasta vizinha que tem `coco_utils.py` e
@@ -39,7 +34,7 @@ zip). Os scripts daqui buscam o benchmark na pasta vizinha que tem `coco_utils.p
 causa do espaço no nome). Os resultados são gravados em `resultados/` e `exdata/` a partir de onde
 o comando é executado.
 
-### Passo 3 — Ambiente virtual e bibliotecas
+### Passo 3 - Ambiente virtual e bibliotecas
 
 | Windows | Mac / Linux |
 |---|---|
@@ -54,7 +49,7 @@ pip install deap numpy scipy matplotlib moocore coco-experiment cocopp cairosvg
 
 `Ctrl+Shift+P` → **Python: Select Interpreter** → escolha a opção com `.venv`.
 
-### Passo 4 — Rodar
+### Passo 4 - Rodar
 
 | # | Comando | Tempo | O que faz |
 |---|---|---|---|
@@ -65,7 +60,7 @@ pip install deap numpy scipy matplotlib moocore coco-experiment cocopp cairosvg
 | 5 | `python experimento_amostra_inicial.py` | ~6 min | Decisão da amostra inicial (seção 5.2) |
 | — | `python grafico_convergencia.py`, `grafico_populacao.py`, `grafico_amostra_inicial.py` | segundos | Refazem só os gráficos |
 
-### Passo 5 — Conferir
+### Passo 5 - Conferir
 
 | Script | Você deve ver |
 |---|---|
@@ -81,7 +76,9 @@ execução e **não vão para o git nem para o zip**.
 ## 2. O algoritmo e sua configuração
 
 O protocolo (benchmark, dimensões, instâncias, orçamento) está em `../2. benchmark`. Aqui
-está o que é do **algoritmo**. Legenda: ✅ decidido · ⚠️ em aberto.
+está o que é do **algoritmo**. 
+
+Legenda: ✅ decidido · ⚠️ em aberto.
 
 **Comum às três variantes:**
 
@@ -104,8 +101,6 @@ usado por inteiro.
 escolhe os **20** mais promissores para a avaliação real (seção 5.3).
 
 **Específico da variante C (LLM):** modelo acessado por **API paga do Claude (Anthropic)**
-(✅ decidido em 13/10/2026). Em aberto: modelo exato, conteúdo do prompt, frequência das chamadas
-e se o LLM soma ou substitui candidatos.
 
 ---
 

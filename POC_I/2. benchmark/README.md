@@ -1,14 +1,9 @@
-# 2. Benchmark — a suíte `bbob-biobj` da plataforma COCO
+# 2. Benchmark - a suíte `bbob-biobj` da plataforma COCO
 
 Esta pasta define **o banco de testes do projeto**: quais problemas, em que condições e como a
 qualidade é medida. Ela não tem algoritmo de otimização. O NSGA-II (baseline) está em
 `../1. baseline`, e as variantes B (surrogate) e C (LLM) vão usar exatamente este mesmo
 benchmark.
-
-> **Decidido na reunião de 13/10/2026 com a orientadora:** trocar o benchmark pela suíte
-> `bbob-biobj` (Black-Box Optimization Benchmarking, versão bi-objetivo) e medir a qualidade com os
-> **indicadores do próprio COCO**. O projeto recomeçou a partir daqui: todas as decisões e todos os
-> gráficos foram feitos neste benchmark.
 
 **Conteúdo**
 
@@ -49,7 +44,7 @@ benchmark.
 | Região de busca | **[−5, 5]** em cada variável | ✅ |
 | Fronteira de Pareto verdadeira | **desconhecida** na maioria das funções | — |
 
-**De que as funções são feitas.** Cada função do `bbob-biobj` junta **duas funções** da suíte
+**De que as funções são feitas - ** cada função do `bbob-biobj` junta **duas funções** da suíte
 `bbob` de um objetivo: o objetivo 1 é uma e o objetivo 2 é outra. Elas são escolhidas entre 10
 funções clássicas, cada uma de uma classe de dificuldade (BROCKHOFF et al., 2022):
 
@@ -65,13 +60,8 @@ Combinando as 10 duas a duas, saem as 55 funções, que formam **15 grupos** (po
 "separável + multimodal"). A lista completa está em `resultados/funcoes_bbob_biobj.csv`. Exemplos:
 f1 = Sphere × Sphere (a mais fácil), f20 = Sphere × Rastrigin, f55 = Gallagher × Gallagher.
 
-**Instâncias.** Cada função existe em várias **instâncias**: a mesma função deslocada e rotacionada
+**Instâncias - ** Cada função existe em várias **instâncias**: a mesma função deslocada e rotacionada
 de formas diferentes. O ótimo muda de lugar em cada instância (o teste B3 confere isso).
-
-**Por que o `bbob-biobj`** (e não a extensão `bbob-biobj-ext`, de 92 funções, que é mais nova):
-a original é a mais usada, tem arquivo público de resultados de outros algoritmos e suporte
-completo no `cocopp`, inclusive o algoritmo de referência "best 2016". Na versão instalada do
-`cocopp` (2.x), o algoritmo de referência da `bbob-biobj-ext` ainda está marcado como "a fazer".
 
 **Vantagem para o LLM (variante C):** como as instâncias são deslocadas e rotacionadas, o LLM não
 tem como "saber" a resposta por ter visto a função durante o treinamento (risco de contaminação).
@@ -80,8 +70,9 @@ tem como "saber" a resposta por ter visto a função durante o treinamento (risc
 
 ## 3. O cenário experimental
 
-Tudo está em **`protocolo.py`**, e vale igual para as três variantes. Legenda: ✅ decidido ·
-📝 proposta a confirmar · ⚠️ em aberto.
+Tudo está em **`protocolo.py`**, e vale igual para as três variantes. 
+
+Legenda: ✅ decidido · 📝 proposta a confirmar · ⚠️ em aberto.
 
 | Item | Valor | Status |
 |---|---|---|
@@ -92,13 +83,13 @@ Tudo está em **`protocolo.py`**, e vale igual para as três variantes. Legenda:
 | Indicadores | **os do COCO** (seção 4) | ✅ |
 | Total | 55 funções × 3 dimensões × 15 instâncias = **2.475 execuções** por algoritmo | — |
 
-**Sobre o orçamento (📝 proposta, falta confirmar com a orientadora).** No COCO o orçamento é
+**Sobre o orçamento (📝 proposta, falta confirmar com a orientadora): ** No COCO o orçamento é
 expresso em proporção à dimensão. 30 × D dá 300 avaliações em D = 10, que é a faixa usada na
 literatura de otimização cara (KNOWLES, 2006; CHUGH et al., 2018; LI et al., 2023), e deixa o
 problema "igualmente caro" nas três dimensões. É esse orçamento curto que simula uma função cara:
 o algoritmo só pode consultar a função 30 × D vezes.
 
-**Instâncias como repetições.** Rodar uma vez em cada uma das 15 instâncias equivale a 15
+**Instâncias como repetições:** Rodar uma vez em cada uma das 15 instâncias equivale a 15
 repetições, como manda a prática do COCO (HANSEN et al., 2021).
 
 ---

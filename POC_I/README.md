@@ -87,5 +87,3 @@ As pastas `exdata/` e `ppdata/` (dados brutos e análise do COCO) são recriadas
 em todas; tamanho da amostra inicial (20, 40 ou 11D − 1); regra de pré-seleção e retreino do
 Random Forest; número de candidatos (100, 200 ou 500); se o LLM roda nas 55 funções ou num
 subconjunto, por causa do custo da API.
-
-O histórico de todas as mudanças está no git (`git log`), inclusive a versão anterior com o ZDT1.
